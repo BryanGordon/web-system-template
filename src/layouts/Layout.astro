@@ -10,15 +10,25 @@
 		<main>
 			<slot />
 		</main>
+		<footer>
+			<h4>Footer</h4>
+		</footer>
 	</body>
 </html>
 
 <style>
-	html,
 	body {
 		margin: 0;
 		display: flex;
 		flex-direction: column;
 		height: 100dvh;
+		background-color: #191919;
+		color: whitesmoke;
+	}
+
+	footer {
+		margin-top: auto;
+		background-color: #373737;
+		text-align: center;
 	}
 </style>
