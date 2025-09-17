@@ -1,7 +1,18 @@
 ---
-
+import Content from './Content.astro'
+import Navbar from './Navbar.astro'
 ---
 
 <section>
-  <h1>Home</h1>
+  <h1>Web system</h1>
+  <Navbar />
+  <Content />
 </section>
+
+<style>
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 38px;
+  }
+</style>
