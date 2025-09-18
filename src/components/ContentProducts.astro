@@ -1,0 +1,138 @@
+---
+interface Products {
+  id: string
+  name: string
+  total: number
+  price: number
+}
+/*
+const data: Products[] = await fetch("http://localhost:3000/")
+  .then(res => res.json())
+  */
+---
+
+<section>
+  <article>
+    {/* 
+      data.map((product) => (
+        <div class="info-container">
+          <div>
+            <span>Nombre:</span>
+            <p>{product.name}</p>
+          </div>
+          <div>
+            <span>Total</span>
+            <p>{product.total}</p>
+          </div>
+          <div>
+            <span>Precio</span>
+            <p>{product.price}</p>
+          </div>
+        </div>    
+      ))
+    }
+    */}
+    <div class="info-container">
+      <div>
+        <span>Nombre:</span>
+        <p>Carton</p>
+      </div>
+      <div>
+        <span>Total</span>
+        <p>20</p>
+      </div>
+      <div>
+        <span>Precio</span>
+        <p>1.50</p>
+      </div>
+    </div>
+
+    <div class="info-container">
+      <div>
+        <span>Nombre</span>
+        <p>Leche</p>
+      </div>
+      <div>
+        <span>Total</span>
+        <p>100</p>
+      </div>
+      <div>
+        <span>Precio</span>
+        <p>0.90</p>
+      </div>
+    </div>
+
+    <div class="info-container">
+      <div>
+        <span>Nombre</span>
+        <p>Agua</p>
+      </div>
+      <div>
+        <span>Total</span>
+        <p>40</p>
+      </div>
+      <div>
+        <span>Precio</span>
+        <p>0.65</p>
+      </div>
+    </div>
+
+    <div class="info-container">
+      <div>
+        <span>Nombre</span>
+        <p>Aceitunas</p>
+      </div>
+      <div>
+        <span>Total</span>
+        <p>10</p>
+      </div>
+      <div>
+        <span>Precio</span>
+        <p>2.70</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    margin-top: 30px;
+  }
+
+  article {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+    align-items: center;
+  }
+  
+  .info-container {
+    justify-items: center;
+    margin: 25px;
+    border-radius: 10px;
+    padding: 5px 20px;
+    background-color: #2c2b2bdd;
+  }
+
+  div {
+    width: 80%;
+    text-align: center;
+    margin-block: 20px;
+
+    & span {
+      font-weight: 800;
+      margin-right: 10px;
+      width: 35%;
+    }
+
+    & p {
+      width: 65%;
+      margin: 0;
+      display: inline-block;
+      text-align: center;
+    }
+
+    & .info-rol {
+      color: #646464fc;
+    }
+  }
+</style>
