@@ -1,24 +1,42 @@
 ---
-
+interface UserData {
+  id: string
+  name: string
+  apellido: string
+  correo: string
+  rol: string
+}
+/*
+const data: UserData[] = await fetch("http://localhost:3000/users")
+  .then(res => res.json())
+  */
 ---
 
 <section>
   <article>
-    <div class="info-container">
-      <div>
-        <span>Nombre</span>
-        <p>Pepe</p>
-      </div>
-      <div>
-        <span>Apellido</span>
-        <p>Ruiz</p>
-      </div>
-      <div>
-        <span>Rol</span>
-        <p class="info-rol">Trabajador</p>
-      </div>
-    </div>
-
+    {/* 
+      data.map((user) => (
+        <div class="info-container">
+          <div>
+            <span>Nombre:</span>
+            <p>{user.name}</p>
+          </div>
+          <div>
+            <span>Apellido:</span>
+            <p>{user.apellido}</p>
+          </div>
+          <div>
+            <span>Correo:</span>
+            <p>{user.correo}</p>
+          </div>
+          <div>
+            <span>Rol:</span>
+            <p>{user.rol}</p>
+          </div>
+        </div>
+      ))
+    }
+      */}
     <div class="info-container">
       <div>
         <span>Nombre</span>
