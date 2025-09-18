@@ -1,14 +1,14 @@
 ---
-
+const currentPage = Astro.url.pathname
 ---
 
 <nav>
   <ul>
     <li>
-      <a href="/">Users</a>
+      <a href="/" class={currentPage === "/" ? "actualPage" : ""}>Users</a>
     </li>
     <li>
-      <a href="/products">Products</a>
+      <a href="/products" class={currentPage === "/products" ? "actualPage" : ""}>Products</a>
     </li>
   </ul>
 </nav>
@@ -35,5 +35,10 @@
   a {
     text-decoration: none;
     color: currentColor;
+  }
+
+  .actualPage {
+    font-size: 19px;
+    color: blueviolet;
   }
 </style>
