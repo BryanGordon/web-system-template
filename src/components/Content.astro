@@ -6,17 +6,17 @@ interface UserData {
   correo: string
   rol: string
 }
-/*
+  // const id = 1
+
 const data: UserData[] = await fetch("http://localhost:3000/users")
   .then(res => res.json())
-  */
 ---
 
 <section>
   <article>
-    {/* 
+    {
       data.map((user) => (
-        <div class="info-container">
+        <a href={`/users/${user.id}`} class="info-container">
           <div>
             <span>Nombre:</span>
             <p>{user.name}</p>
@@ -33,11 +33,11 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
             <span>Rol:</span>
             <p>{user.rol}</p>
           </div>
-        </div>
+        </a>
       ))
     }
-      */}
-    <div class="info-container">
+    {/* 
+    <a href={`/users/${id}`} class="info-container">
       <div>
         <span>Nombre</span>
         <p>Pepe</p>
@@ -52,7 +52,7 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
       </div>
     </div>
 
-    <div class="info-container">
+    <a href={`/users/${id}`} class="info-container">
       <div>
         <span>Nombre</span>
         <p>Pepe</p>
@@ -67,7 +67,7 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
       </div>
     </div>
 
-    <div class="info-container">
+    <a href={`/users/${id}`} class="info-container">
       <div>
         <span>Nombre</span>
         <p>Pepe</p>
@@ -81,6 +81,7 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
         <p class="info-rol">Trabajador</p>
       </div>
     </div>
+    */}
   </article>
 </section>
 
@@ -96,6 +97,8 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
   }
   
   .info-container {
+    text-decoration: none;
+    color: whitesmoke;
     justify-items: center;
     margin: 25px;
     border-radius: 10px;
