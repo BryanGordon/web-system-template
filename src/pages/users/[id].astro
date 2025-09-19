@@ -1,5 +1,18 @@
 ---
-export const prerender = false
----
+import Layout from '../../layouts/Layout.astro'
 
-<h1>Hola buenas noches</h1>
+export const prerender = false
+
+const { id } = Astro.params
+const response = await fetch("")
+const user = await response.json()
+---
+<Layout>
+  <h1>Info user {id}</h1>
+</Layout>
+
+<style>
+  p {
+    color: red;
+  }
+</style>
