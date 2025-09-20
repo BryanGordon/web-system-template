@@ -1,0 +1,85 @@
+---
+import UpdateButton from '../../components/UpdateButton.astro'
+import Layout from '../../layouts/Layout.astro'
+
+export const prerender = false
+
+interface UserData {
+  id: string
+  name: string
+  apellido: string
+  correo: string
+  rol: string
+}
+
+const { name } = Astro.params
+console.log("Infooo user:  " + name)
+const response = await fetch(`http://localhost:3000/users/search/${name}`)
+const user: UserData =  await response.json()
+---
+<Layout>
+  <article>
+    <header>
+      <h1>Info user {user.name}</h1>
+    </header>
+
+    <a href="/">Volver al inicio</a>
+
+    <div class="card-info-users">
+      <div>
+        <h4>Nombre</h4>
+        <p>{user.name}</p>
+
+        <h4>Apellido</h4>
+        <p>{user.apellido}</p>
+      </div>
+
+      <div>
+        <h4>Correo</h4>
+        <p>{user.correo}</p>
+
+        <h4>Rol</h4>
+        <p class="rol-tag">{user.rol}</p>
+        </div>
+    </div>
+    <UpdateButton />
+  </article>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-block: 50px;
+  }
+
+  h4 {
+    margin-left: 45px;
+  }
+
+  p {
+    margin-left: 58px;
+  }
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 60px;
+  }
+
+  .card-info-users {
+    padding: 15px;
+    margin-top: 30px;
+    margin-inline: 60px;
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    background-color:#2c2b2bdd;
+    border-radius: 15px;
+  }
+
+  .rol-tag {
+    color: blueviolet;
+    font-weight: 600;
+  }
+  
+</style>
