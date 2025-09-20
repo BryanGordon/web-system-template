@@ -16,7 +16,7 @@ const data: Products[] = await fetch("http://localhost:3000/")
   <article>
     {
       data.map((product) => (
-        <a href={`/products/${product.id}`} class="info-container">
+        <a href={`/products/${product.name}`} class="info-container">
           <div>
             <span>Nombre:</span>
             <p>{product.name}</p>
