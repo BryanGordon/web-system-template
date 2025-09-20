@@ -16,7 +16,7 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
   <article>
     {
       data.map((user) => (
-        <a href={`/users/${user.id}`} class="info-container">
+        <a href={`/users/${user.name}`} class="info-container">
           <div>
             <span>Nombre:</span>
             <p>{user.name}</p>
