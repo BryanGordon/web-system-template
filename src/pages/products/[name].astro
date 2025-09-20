@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+export const prerender = false
+
+interface Products {
+  id: string
+  name: string
+  total: number
+  price: number
+}
+
+const { name } = Astro.params
+const response = await fetch(`http://localhost:3000/search/${name}`)
+const product: Products = await response.json()
+---
+
+<Layout>
+  <h1>{product.name}</h1>
+  <p>{product.total}</p>
+  <p>{product.price}</p>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+  }
+</style>
