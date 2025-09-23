@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+export const prerender = false
+
+const { name } = Astro.params
+const response = await fetch(`http://localhost:3000/users/search/${name}`)
+const user = await response.json()
+
+const handleSubmit = (event: Event) => {
+  event.preventDefault()
+
+  const newRol = (document.getElementById('newRol') as HTMLInputElement).value
+
+  try {
+    fetch(`http://localhost:3000/users/${user.id}`,{
+      method: 'PATCH',
+      body: JSON.stringify({ rol: newRol}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    alert("Rol actualizado con exito")
+  }
+
+  catch (error) {
+    console.log("errooooor: ", error)
+    alert("No se pudo actualizar el rol")
+  }
+}
+
+---
+
+<Layout>
+  <article>
+    <header>
+      <h1>Actualizar rol de usuario</h1>
+      <p>Rol actual: {user.rol}</p>
+    </header>
+
+    <form id="updateRolForm">
+      <input id="newRol" type="text" placeholder="Coloque un nuevo rol" />
+      <button type="submit">Cambiar</button>
+    </form>
+    
+    <script is:inline>
+      const form = document.getElementById('updateRolForm');
+      form?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        const newRol = (document.getElementById('newRol')).value;
+        const name = "Pablo"  
+        const response = await fetch(`http://localhost:3000/users/search/${name}`)
+        const user = await response.json()
+        console.log("User data: ", user)
+
+        try {
+          await fetch(`http://localhost:3000/users/${user.id}`, {
+            method: "PATCH",
+            body: JSON.stringify({ rol: newRol }),
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          })
+          alert("Rol actualizado con exito")
+
+        } catch (error) {
+          console.error("errooooor: ", error)
+          alert("No se pudo actualizar el rol")
+        }
+      })
+    </script>
+  </article>
+
+  <style>
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    p {
+      color: #b5b3b9;
+      font-weight: 500;
+      width: 100%;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      width: 65%;
+      margin: 0 auto;
+      margin-top: 60px;
+      flex-direction: column;
+      
+      & input, button {
+        margin: 0 auto;
+      }
+
+      & input {
+        padding: 5px 20px;
+        border-radius: 5px;
+
+        &:focus-visible {
+          outline: none;
+          background-color: #c0c0c1f7;
+        }
+      }
+
+      & button {
+        border: 0;
+        padding: 10px;
+        border-radius: 4px;
+        margin-top: 45px;
+      }
+    }
+  </style>
+
+
+</Layout>
