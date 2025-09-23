@@ -1,4 +1,5 @@
 ---
+import UpdateButton from '../../components/UpdateButton.astro'
 import Layout from '../../layouts/Layout.astro'
 
 export const prerender = false
@@ -16,14 +17,65 @@ const product: Products = await response.json()
 ---
 
 <Layout>
-  <h1>{product.name}</h1>
-  <p>{product.total}</p>
-  <p>{product.price}</p>
+  <article>
+    <header>
+      <h1>Info user {product.name}</h1>
+    </header>
+
+    <a href="/products">Volver al inicio</a>
+
+    <div class="card-info-users">
+      <div>
+        <h4>Nombre</h4>
+        <p>{product.name}</p>
+        <UpdateButton href=`/update-product-name/${product.id}`/>
+
+        <h4>Total</h4>
+        <p>{product.total}</p>
+      </div>
+
+      <div>
+        <h4>Precio</h4>
+        <p>$ {product.price}</p>
+        </div>
+    </div>
+  </article>
 </Layout>
 
 <style>
   h1 {
     text-align: center;
-    margin-top: 50px;
+    margin-block: 50px;
   }
+
+  h4 {
+    margin-left: 45px;
+  }
+
+  p {
+    margin-left: 58px;
+  }
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 60px;
+  }
+
+  .card-info-users {
+    padding: 15px;
+    margin-top: 30px;
+    margin-inline: 60px;
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    background-color:#2c2b2bdd;
+    border-radius: 15px;
+  }
+
+  .rol-tag {
+    color: blueviolet;
+    font-weight: 600;
+  }
+  
 </style>
