@@ -29,6 +29,7 @@ const user: UserData =  await response.json()
       <div>
         <h4>Nombre</h4>
         <p>{user.name}</p>
+        <UpdateButton href=`/update-user-name/${user.name}`/>
 
         <h4>Apellido</h4>
         <p>{user.apellido}</p>
@@ -40,9 +41,9 @@ const user: UserData =  await response.json()
 
         <h4>Rol</h4>
         <p class="rol-tag">{user.rol}</p>
+        <UpdateButton href=`/update-rol/${user.name}`/>
         </div>
     </div>
-    <UpdateButton />
   </article>
 </Layout>
 
