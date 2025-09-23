@@ -1,13 +1,22 @@
 ---
+interface Props {
+  href: string
+}
 
+const redirect = Astro.props
 ---
 <div>
-  <a href="#">Actualizar</a>
+  <a href={redirect.href}>Actualizar</a>
 </div>
 
 <style>
   div {
     margin: 30px;
+  }
+
+  a:hover {
+    background-color: #b3b2b2;
+    color: darkslateblue;
   }
 
   a {
@@ -20,5 +29,6 @@
     text-align: center;
     color: #c9c9c9;
     line-height: 20px;
+    transition: all ease 0.3s;
   }
 </style>
