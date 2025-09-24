@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import UpdateRol from '../../components/UpdateRol.svelte'
 
 export const prerender = false
 
@@ -7,35 +8,16 @@ const { name } = Astro.params
 const response = await fetch(`http://localhost:3000/users/search/${name}`)
 const user = await response.json()
 
-const handleSubmit = (event: Event) => {
-  event.preventDefault()
-
-  const newRol = (document.getElementById('newRol') as HTMLInputElement).value
-
-  try {
-    fetch(`http://localhost:3000/users/${user.id}`,{
-      method: 'PATCH',
-      body: JSON.stringify({ rol: newRol}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    alert("Rol actualizado con exito")
-  }
-
-  catch (error) {
-    console.log("errooooor: ", error)
-    alert("No se pudo actualizar el rol")
-  }
-}
-
 ---
 
 <Layout>
+  <UpdateRol name={name} userRol={user.rol} userId={user.id} client:load/>
+  {/* 
   <article>
     <header>
       <h1>Actualizar rol de usuario</h1>
       <p>Rol actual: {user.rol}</p>
+      <a href={`/users/${name}`}>Volver al usuario</a>
     </header>
 
     <form id="updateRolForm">
@@ -71,6 +53,8 @@ const handleSubmit = (event: Event) => {
       })
     </script>
   </article>
+  */}
+</Layout>
 
   <style>
     h1 {
@@ -113,7 +97,11 @@ const handleSubmit = (event: Event) => {
         margin-top: 45px;
       }
     }
+
+    a {
+      color: whitesmoke;
+      margin-left: 60px;
+      text-decoration: none;
+    }
   </style>
 
-
-</Layout>
