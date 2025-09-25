@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import CreateNewUser from '../../components/CreateNewUser.svelte'
+
+---
+<Layout>
+  <section>
+    <header>
+      <h1>Agregar nuevo usuario</h1>
+      <a href="/">Volver atras</a>
+    </header>
+    <CreateNewUser />
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 60px;
+    margin-top: 50px;
+  }
+</style>
