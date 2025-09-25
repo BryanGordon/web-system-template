@@ -1,4 +1,6 @@
 ---
+import CreateButton from './CreateButton.astro'
+
 interface UserData {
   id: string
   name: string
@@ -13,6 +15,7 @@ const data: UserData[] = await fetch("http://localhost:3000/users")
 ---
 
 <section>
+  <CreateButton href='/create/create-user'/>
   <article>
     {
       data.map((user) => (
