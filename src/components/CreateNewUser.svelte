@@ -1,32 +1,65 @@
 <script lang="ts">
 
+  let name: string = ''
+  let apellido: string = ''
+  let correo: string = ''
+  let rol: string = ''
+  let id: string = ''
+
+  function handleCreate(e: Event) {
+    e.preventDefault()
+
+    const newUser = {
+      id: id,
+      name: name,
+      apellido: apellido,
+      correo: correo, 
+      rol: rol
+    }
+
+    try {
+      fetch('http://localhost:3000/users/add', {
+        method: 'POST',
+        body: JSON.stringify(newUser),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      alert('Usuario creado con exito')
+    }
+    catch(e) {
+      console.error(e)
+      alert('Error al crear al usuario')
+    }
+  }
+
 </script>
 
 <article>
-  <form action="">
+  <form on:submit={handleCreate}>
     <div>
-      <label for="">Ingrese un nombre:</label>
-      <input type="text" placeholder="Juan Carlos" />
+      <label for="inputName">Ingrese un nombre:</label>
+      <input id="inputName" type="text" placeholder="Juan Carlos" bind:value={name} />
     </div>
 
     <div>
-      <label for="">Ingrese un apellido:</label>
-      <input type="text" placeholder="Garcia" />
+      <label for="inputSurname">Ingrese un apellido:</label>
+      <input id="inputSurname" type="text" placeholder="Garcia" bind:value={apellido} />
     </div>
 
     <div>
-      <label for="">Ingrese un correo:</label>
-      <input type="text" placeholder="alguien@correo.com">
+      <label for="inputEmail">Ingrese un correo:</label>
+      <input id="inputEmail" type="text" placeholder="alguien@correo.com" bind:value={correo} />
     </div>
 
     <div>
-      <label for="">Ingrese un rol:</label>
-      <input type="text" placeholder="Admin/Trabajador" />
+      <label for="inputRol">Ingrese un rol:</label>
+      <input id="inputRol" type="text" placeholder="Admin/Trabajador" bind:value={rol} />
     </div>
 
     <div>
-      <label for="">Ingrese un id:</label>
-      <input type="text" />
+      <label for="idField">Ingrese un id:</label>
+      <input id="idField" type="text" bind:value={id} />
     </div>
 
     <button type="submit">Crear</button>
