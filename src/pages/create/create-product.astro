@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import CreateNewProduct from '../../components/CreateNewProduct.svelte'
+---
+<Layout>
+  <section>
+    <header>
+      <h1>Agregar nuevo producto</h1>
+      <a href="/products">Volver atras</a>
+    </header>
+    <CreateNewProduct client:load/>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 60px;
+    margin-top: 50px;
+  }
+</style>
