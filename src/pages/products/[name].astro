@@ -19,7 +19,7 @@ const product: Products = await response.json()
 <Layout>
   <article>
     <header>
-      <h1>Info user {product.name}</h1>
+      <h1>Info product {product.name}</h1>
     </header>
 
     <a href="/products">Volver al inicio</a>
@@ -28,7 +28,7 @@ const product: Products = await response.json()
       <div>
         <h4>Nombre</h4>
         <p>{product.name}</p>
-        <UpdateButton href=`/update-product-name/${product.id}`/>
+        <UpdateButton href=`/update-product-name/${product.name}`/>
 
         <h4>Total</h4>
         <p>{product.total}</p>
