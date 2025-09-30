@@ -1,4 +1,5 @@
 ---
+import DeleteProductButton from '../../components/DeleteProductButton.svelte'
 import UpdateButton from '../../components/UpdateButton.astro'
 import Layout from '../../layouts/Layout.astro'
 
@@ -39,6 +40,7 @@ const product: Products = await response.json()
         <p>$ {product.price}</p>
         </div>
     </div>
+    <DeleteProductButton productName={product.name} client:load />
   </article>
 </Layout>
 
