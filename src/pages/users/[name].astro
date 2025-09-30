@@ -1,4 +1,5 @@
 ---
+import DeleteButton from '../../components/DeleteUserButton.svelte'
 import UpdateButton from '../../components/UpdateButton.astro'
 import Layout from '../../layouts/Layout.astro'
 
@@ -44,6 +45,7 @@ const user: UserData =  await response.json()
         <UpdateButton href=`/update-rol/${user.name}`/>
         </div>
     </div>
+    <DeleteButton userId={user.id} client:load/>
   </article>
 </Layout>
 
