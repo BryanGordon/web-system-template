@@ -7,11 +7,16 @@ interface Products {
   total: number
   price: number
 }
-
+/*
 const data: Products[] = await fetch("http://localhost:3000/")
   .then(res => res.json())
   
  // const id = 2
+
+*/
+
+const response = await fetch("http://localhost:3000/supa/products")
+const data: Products[] = await response.json()
 ---
 
 <section>
