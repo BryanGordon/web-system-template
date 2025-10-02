@@ -9,9 +9,13 @@ interface UserData {
   rol: string
 }
   // const id = 1
-
+/*
 const data: UserData[] = await fetch("http://localhost:3000/users")
   .then(res => res.json())
+*/
+
+const response = await fetch(`http://localhost:3000/supa/users`)
+const data: UserData[] = await response.json()
 ---
 
 <section>
