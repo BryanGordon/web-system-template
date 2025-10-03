@@ -15,13 +15,19 @@ interface UserData {
 
 const { name } = Astro.params
 console.log("Infooo user:  " + name)
+/* 
 const response = await fetch(`http://localhost:3000/users/search/${name}`)
 const user: UserData =  await response.json()
+*/
+const response = await fetch(`http://localhost:3000/supa/users/search/${name}`)
+const user: UserData[] = await response.json()
+const userInfo = user[0]
+console.log(user)
 ---
 <Layout>
   <article>
     <header>
-      <h1>Info user {user.name}</h1>
+      <h1>Info user {userInfo.name}</h1>
     </header>
 
     <a href="/">Volver al inicio</a>
@@ -29,23 +35,23 @@ const user: UserData =  await response.json()
     <div class="card-info-users">
       <div>
         <h4>Nombre</h4>
-        <p>{user.name}</p>
-        <UpdateButton href=`/update-user-name/${user.name}`/>
+        <p>{userInfo.name}</p>
+        <UpdateButton href=`/update-user-name/${userInfo.name}`/>
 
         <h4>Apellido</h4>
-        <p>{user.apellido}</p>
+        <p>{userInfo.apellido}</p>
       </div>
 
       <div>
         <h4>Correo</h4>
-        <p>{user.correo}</p>
+        <p>{userInfo.correo}</p>
 
         <h4>Rol</h4>
-        <p class="rol-tag">{user.rol}</p>
-        <UpdateButton href=`/update-rol/${user.name}`/>
+        <p class="rol-tag">{userInfo.rol}</p>
+        <UpdateButton href=`/update-rol/${userInfo.name}`/>
         </div>
     </div>
-    <DeleteButton userId={user.id} client:load/>
+    <DeleteButton userId={userInfo.id} client:load/>
   </article>
 </Layout>
 
