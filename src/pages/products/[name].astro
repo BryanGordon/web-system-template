@@ -13,7 +13,12 @@ interface Products {
 }
 
 const { name } = Astro.params
+/** 
 const response = await fetch(`http://localhost:3000/search/${name}`)
+const product: Products = await response.json()
+*/
+
+const response = await fetch(`http://localhost:3000/supa/users/search/${name}`)
 const product: Products = await response.json()
 ---
 
