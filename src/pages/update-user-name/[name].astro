@@ -11,10 +11,14 @@ interface User {
 }
 
 const { name } = Astro.params
-
+/** 
 const response = await fetch(`http://localhost:3000/users/search/${name}`)
 const user: User = await response.json()
+*/
 
+const response = await fetch(`http://localhost:3000/supa/users/search/${name}`)
+const userInfo = await response.json()
+const user = userInfo[0]
 ---
 <Layout>
   <UpdateUserName userName={user.name} userId={user.id} client:load/>
