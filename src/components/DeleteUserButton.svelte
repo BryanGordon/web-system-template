@@ -3,7 +3,7 @@
 
   function handleDelete() {
     try {
-      fetch(`http://localhost:3000/users/${userId}`, {
+      fetch(`http://localhost:3000/supa/users/${userId}`, {
         method: 'DELETE'
       })
       alert("Usuario borrado correctamente")
