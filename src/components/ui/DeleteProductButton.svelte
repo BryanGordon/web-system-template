@@ -1,9 +1,12 @@
 <script lang="ts">
   export let productName: string
 
+  const localdb = `http://localhost:3000/${productName}`
+  // const supadb = `http://localhost:300/supa/users/{id}`
+
   function handleDelete () {
     try {
-      fetch(`http://localhost:3000/${productName}`, {
+      fetch(localdb, {
         method: 'DELETE'
       })
       alert('Se ha borrado el producto correctamente')
