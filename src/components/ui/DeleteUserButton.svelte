@@ -1,9 +1,12 @@
 <script lang="ts">
   export let userId: string
 
+  const localdb: string = `http://localhost:3000/users/${userId}`
+  const supadb: string = `http://localhost:3000/supa/users/${userId}`
+
   function handleDelete() {
     try {
-      fetch(`http://localhost:3000/supa/users/${userId}`, {
+      fetch(supadb, {
         method: 'DELETE'
       })
       alert("Usuario borrado correctamente")
