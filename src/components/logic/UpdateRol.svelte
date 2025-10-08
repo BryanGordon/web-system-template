@@ -5,11 +5,14 @@
 
   let newRol = ""
 
+  const localdb = `http://localhost:3000/users/${userId}`
+  const supadb = `http://localhost:3000/supa/users/update/${userId}`
+
   async function handleSubmit(event: Event) {
     event.preventDefault()
 
     try {
-      await fetch(`http://localhost:3000/users/${userId}`, {
+      await fetch(supadb, {
         method: "PATCH",
         body: JSON.stringify({ rol: newRol}),
         headers: {
