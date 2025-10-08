@@ -14,7 +14,6 @@ interface UserData {
 }
 
 const { name } = Astro.params
-console.log("Infooo user:  " + name)
 /* 
 const response = await fetch(`http://localhost:3000/users/search/${name}`)
 const user: UserData =  await response.json()
@@ -22,7 +21,7 @@ const user: UserData =  await response.json()
 const response = await fetch(`http://localhost:3000/supa/users/search/${name}`)
 const user: UserData[] = await response.json()
 const userInfo = user[0]
-console.log(user)
+
 ---
 <Layout>
   <article>
