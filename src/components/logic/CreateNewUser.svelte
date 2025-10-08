@@ -6,6 +6,9 @@
   let rol: string = ''
   let id: string = ''
 
+  const localdb = 'http://localhost:3000/users/add'
+  const supadb = 'http://localhost:3000/supa/users/'
+
   function handleCreate(e: Event) {
     e.preventDefault()
 
@@ -18,7 +21,7 @@
     }
 
     try {
-      fetch('http://localhost:3000/users/add', {
+      fetch(supadb, {
         method: 'POST',
         body: JSON.stringify(newUser),
         headers: {
