@@ -5,6 +5,9 @@
   let price: number | null = null
   let id: string = ''
 
+  const localdb = 'http://localhost:3000/add'
+  const supadb = 'http://localhost:3000/supa/products/'
+
   function handleCreate(e: Event) {
     e.preventDefault()
 
@@ -16,7 +19,7 @@
     }
 
     try {
-      fetch('http://localhost:3000/add', {
+      fetch(supadb, {
         method: 'POST',
         body: JSON.stringify(newProduct),
         headers: {
