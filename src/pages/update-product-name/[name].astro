@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import UpdateProductName from '../../components/UpdateProductName.svelte'
+import UpdateProductName from '../../components/logic/UpdateProductName.svelte'
 
 interface Product {
   id: string
@@ -11,7 +11,7 @@ interface Product {
 
 const { name } = Astro.params
 
-const response = await fetch(`http://localhost:3000/search/${name}`)
+const response = await fetch(`http://localhost:3000/supa/products/search/${name}`)
 const product: Product = await response.json()
 ---
 <Layout>
