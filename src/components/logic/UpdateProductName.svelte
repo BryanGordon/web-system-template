@@ -4,11 +4,14 @@
 
   let newName = ''
 
+  const localdb = `http://localhost:3000/${productId}`
+  const supadb = `http://localhost:3000/supa/products/update-name/${productId}`
+
   function handleName (e: Event) {
     e.preventDefault()
 
     try {
-      fetch(`http://localhost:3000/${productId}`, {
+      fetch(supadb, {
         method: 'PATCH',
         body: JSON.stringify({name: newName}),
         headers: {
