@@ -2,11 +2,11 @@
   export let productName: string
 
   const localdb = `http://localhost:3000/${productName}`
-  // const supadb = `http://localhost:300/supa/users/{id}`
+  const supadb = `http://localhost:300/supa/products/${productName}`
 
   function handleDelete () {
     try {
-      fetch(localdb, {
+      fetch(supadb, {
         method: 'DELETE'
       })
       alert('Se ha borrado el producto correctamente')
