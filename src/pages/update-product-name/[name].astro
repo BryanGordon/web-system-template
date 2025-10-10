@@ -10,9 +10,14 @@ interface Product {
 }
 
 const { name } = Astro.params
+/*
+const response = await fetch(`http://localhost:3000/search/${name}`)
+const product = await response.json()
+*/
 
 const response = await fetch(`http://localhost:3000/supa/products/search/${name}`)
-const product: Product = await response.json()
+const newProduct: Product[] = await response.json()
+const product = newProduct[0]
 ---
 <Layout>
   <UpdateProductName productName={product.name} productId={product.id} client:load />
