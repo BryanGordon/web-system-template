@@ -2,7 +2,7 @@
   export let productName: string
 
   const localdb = `http://localhost:3000/${productName}`
-  const supadb = `http://localhost:300/supa/products/${productName}`
+  const supadb = `http://localhost:3000/supa/products/${productName}`
 
   function handleDelete () {
     try {
