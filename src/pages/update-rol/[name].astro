@@ -5,8 +5,22 @@ import UpdateRol from '../../components/logic/UpdateRol.svelte'
 export const prerender = false
 
 const { name } = Astro.params
+
+interface Users {
+  "id": string
+  "name": string
+  "apellido": string
+  "correo": string
+  "rol": string
+}
+
+/*
 const response = await fetch(`http://localhost:3000/users/search/${name}`)
 const user = await response.json()
+*/
+const response = await fetch(`http://localhost:3000/supa/users/search/${name}`)
+const userInfo: Users[] = await response.json()
+const user = userInfo[0]
 ---
 
 <Layout>
